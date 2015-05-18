@@ -24,7 +24,6 @@ odbcCloseAll()
 
 logger.results.backup <- logger.results
 
-
 logger.results <- logger.results.backup
 
 # Order by timestamp and force local timestamp
@@ -67,9 +66,5 @@ EndTime <- force_tz(as.POSIXct("2015-03-17 13:19:00", format = "%Y-%m-%d %H:%M:%
 logger.results.display <- subset(logger.results, logger.results$TS >= StartTime & logger.results$TS <= EndTime)
 
 plot(logger.results.display$TS,logger.results.display$RMSI1, type="l")
-#plot(logger.results.validation.subset$TS,logger.results.validation.subset$FtDetected*max(logger.results.validation.subset$RMSI1))
 polygon(logger.results.display$TS,logger.results.display$PrFault*max(logger.results.display$RMSI1), col =rgb(1,0,0,alpha=0.3),xlab="",ylab="",yaxt="n",border = NA)
-#polygon(logger.results.validation.subset$TS,logger.results.validation.subset$FAULT*max(logger.results.validation.subset$RMSI1), col =rgb(0,0,1,alpha=0.3),xlab="",ylab="",yaxt="n",border = NA)
 axis(4)
-
-
